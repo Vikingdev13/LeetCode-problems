@@ -1,5 +1,6 @@
-from functools import reduce
+# Time:  O(nlogm), n the length of nums, m is the max value of nums
+# Space: O(logm)
 
 class Solution:
-    def findNumbers(self, nums: List[int]) -> int:
-        return reduce(lambda s, x: s + (1 - len(str(x)) % 2), nums, 0)
+    def findNumbers(self, nums):
+        return sum(len(str(n)) % 2 == 0 for n in nums)
